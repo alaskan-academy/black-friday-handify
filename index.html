@@ -471,6 +471,20 @@
     tick();
   })();
 
+  // Rastreamento: repassa as UTMs que chegaram do e-mail (ex.: utm_content=e2-ferramenta)
+  // para todos os botões do checkout. A Payt grava essas UTMs na venda, e assim
+  // dá para saber qual e-mail (e qual segmento, em utm_term) vendeu.
+  (function () {
+    var incoming = new URLSearchParams(location.search);
+    var keys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+    if (!keys.some(function (k) { return incoming.get(k); })) return;
+    document.querySelectorAll('a[href*="checkout.payt.com.br"]').forEach(function (a) {
+      var url = new URL(a.href);
+      keys.forEach(function (k) { var v = incoming.get(k); if (v) url.searchParams.set(k, v); });
+      a.href = url.toString();
+    });
+  })();
+
   // Botão fixo no celular: aparece depois que a caixa de preço sai da tela
   (function () {
     var sticky = document.getElementById('sticky');

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calendário de Natal Handify</title>
+<meta name="description" content="O calendário de produção do Natal, semana a semana, para quem faz sabonetes, velas e buquês para vender.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="img/icon-gradiente-grande.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --handify-blue: #6699F3; --handify-green: #72CF92; --handify-yellow: #FEC649;
+    --handify-black: #0F0F0F; --handify-gray-dark: #2D2D2D; --handify-off-white: #F5F5F0;
+    --muted: #5C5C5C; --line: rgba(0,0,0,.08);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Montserrat', Arial, Helvetica, sans-serif; color: var(--handify-gray-dark); background: #fff; line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; }
+  img { display: block; max-width: 100%; }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 0 16px; }
+  .stripe { display: flex; height: 6px; } .stripe span { flex: 1; }
+  .stripe span:nth-child(1) { background: var(--handify-blue); } .stripe span:nth-child(2) { background: var(--handify-green); } .stripe span:nth-child(3) { background: var(--handify-yellow); }
+  .logo-crop { display: block; width: 170px; height: 42px; object-fit: cover; object-position: center; }
+  header { padding: 18px 0 6px; }
+
+  .intro { padding: 18px 0 30px; }
+  .eyebrow { display: inline-block; background: var(--handify-off-white); font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px; margin-bottom: 16px; }
+  h1 { font-weight: 900; font-size: clamp(30px, 8vw, 46px); line-height: 1.1; color: var(--handify-black); letter-spacing: -0.02em; margin-bottom: 16px; }
+  h1 .accent { color: var(--handify-blue); }
+  .intro p + p { margin-top: 12px; }
+  .by { display: flex; gap: 12px; align-items: center; margin-top: 20px; }
+  .by img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 2px solid var(--handify-yellow); }
+  .by b { display: block; color: var(--handify-black); font-size: 15px; }
+  .by small { color: var(--muted); font-size: 13px; }
+
+  .timeline { position: relative; padding: 8px 0 20px; }
+  .week { position: relative; padding: 0 0 26px 30px; border-left: 3px solid var(--handify-off-white); margin-left: 10px; }
+  .week:last-child { border-left-color: transparent; }
+  .week::before { content: ""; position: absolute; left: -11px; top: 2px; width: 18px; height: 18px; border-radius: 50%; background: var(--handify-blue); border: 3px solid #fff; box-shadow: 0 0 0 2px var(--handify-blue); }
+  .week.now::before { background: var(--handify-yellow); box-shadow: 0 0 0 2px var(--handify-black); }
+  .when { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+  .week.now .when::after { content: "Você está aqui"; margin-left: 8px; background: var(--handify-yellow); color: var(--handify-black); padding: 2px 8px; border-radius: 999px; font-size: 11px; }
+  .week h2 { font-size: 20px; font-weight: 700; color: var(--handify-black); margin: 2px 0 8px; line-height: 1.25; }
+  .week ul { list-style: none; display: grid; gap: 8px; }
+  .week li { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; font-size: 15px; box-shadow: 0 1px 3px rgba(0,0,0,.05); }
+  .week li b { color: var(--handify-black); }
+
+  .tip { background: var(--handify-off-white); border-radius: 12px; padding: 16px; margin: 4px 0 30px; font-size: 15px; }
+  .tip b { color: var(--handify-black); }
+  .sign { font-family: 'Caveat', cursive; font-size: 26px; margin: 8px 0 36px; }
+
+  .bf { background: var(--handify-black); color: #fff; border-radius: 16px; padding: 24px 20px; margin-bottom: 40px; border: 3px solid var(--handify-yellow); }
+  .bf .tag { display: inline-block; background: var(--handify-yellow); color: var(--handify-black); font-weight: 900; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; padding: 5px 10px; border-radius: 6px; margin-bottom: 12px; }
+  .bf h3 { font-size: 22px; font-weight: 900; line-height: 1.2; margin-bottom: 8px; }
+  .bf p { color: #E2E2E2; font-size: 15px; }
+  .bf .price { margin-top: 12px; font-size: 15px; } .bf .price s { color: #9A9A9A; } .bf .price strong { color: var(--handify-yellow); font-size: 20px; font-weight: 900; }
+  .btn { display: block; text-align: center; text-decoration: none; background: var(--handify-blue); color: #fff; font-weight: 900; font-size: 16px; padding: 16px 18px; border-radius: 10px; margin-top: 16px; transition: background .2s ease-out; }
+  .btn:hover { background: #5588E8; } .btn:focus-visible { outline: 3px solid var(--handify-yellow); outline-offset: 3px; }
+  footer { text-align: center; font-size: 12px; color: var(--muted); padding: 0 16px 32px; }
+</style>
+</head>
+<body>
+<div class="stripe" aria-hidden="true"><span></span><span></span><span></span></div>
+<div class="wrap">
+  <header><img class="logo-crop" src="img/logo-horizontal-tm-azul.png" alt="Handify™"></header>
+
+  <div class="intro">
+    <span class="eyebrow">Calendário de Natal 2026</span>
+    <h1>O que fazer em cada semana <span class="accent">até o Natal</span></h1>
+    <p>Quem vende artesanato no Natal não perde venda por falta de talento. Perde por começar tarde: a cliente pede, e não dá mais tempo de produzir, embalar e entregar.</p>
+    <p>Então montei este calendário, semana a semana, pra quem faz sabonete, vela ou buquê. Serve pra qualquer peça: troque pelos produtos que você já sabe fazer.</p>
+    <div class="by">
+      <img src="https://saponaria.handify.com.br/Imagens/saponaria-rev4-img6.webp" alt="Viviane Dornelles">
+      <div><b>Viviane Dornelles</b><small>Professora da Handify</small></div>
+    </div>
+  </div>
+
+  <div class="timeline">
+    <div class="week now">
+      <p class="when">Semana 1 · 24 a 30 de novembro</p>
+      <h2>Escolha o kit e abra as encomendas</h2>
+      <ul>
+        <li><b>Escolha 3 peças</b> pro seu kit de Natal: uma peça principal e duas que completam. Ex.: sabonete + vela + embalagem bonita.</li>
+        <li><b>Faça uma peça de teste</b> de cada uma, do jeito que você vai vender.</li>
+        <li><b>Calcule o custo</b> de cada peça e defina o preço do kit e das peças avulsas.</li>
+        <li><b>Fotografe com luz natural</b> e poste: "Encomendas de Natal abertas". Quem vê cedo encomenda cedo.</li>
+      </ul>
+    </div>
+
+    <div class="week">
+      <p class="when">Semana 2 · 1 a 7 de dezembro</p>
+      <h2>Produza a base e feche os pedidos grandes</h2>
+      <ul>
+        <li><b>Comece pelas velas.</b> Velas de cera vegetal ficam mais perfumadas depois de alguns dias de cura, então elas vão primeiro.</li>
+        <li><b>Sabonete glicerinado</b> fica pronto no mesmo dia. Embale em filme logo depois de desenformar, pra ele não "suar".</li>
+        <li><b>Feche os pedidos grandes</b> agora: empresas, amigo secreto, lembrancinha de festa de fim de ano.</li>
+      </ul>
+    </div>
+
+    <div class="week">
+      <p class="when">Semana 3 · 8 a 14 de dezembro</p>
+      <h2>Personalize e embale</h2>
+      <ul>
+        <li><b>Tags, laços e nomes:</b> é a embalagem que faz a cliente pagar mais pelo mesmo kit.</li>
+        <li><b>14/12 é um bom limite</b> pra aceitar pedidos personalizados. Depois disso, só pronta-entrega.</li>
+        <li><b>Anote cada pedido</b> com nome, quantidade, data de entrega e quanto falta receber.</li>
+      </ul>
+    </div>
+
+    <div class="week">
+      <p class="when">Semana 4 · 15 a 20 de dezembro</p>
+      <h2>Última leva e envios</h2>
+      <ul>
+        <li><b>Envios pelos Correios ou transportadora:</b> confira o prazo da sua região e poste com folga.</li>
+        <li><b>Faça uma última leva</b> de pronta-entrega com as peças que mais saíram.</li>
+      </ul>
+    </div>
+
+    <div class="week">
+      <p class="when">21 a 24 de dezembro</p>
+      <h2>Entregas e pronta-entrega</h2>
+      <ul>
+        <li><b>Entregue os pedidos</b> e deixe alguns kits prontos: sempre aparece quem lembrou na última hora.</li>
+        <li><b>O que sobrar</b> vira kit de Ano Novo.</li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="tip"><b>O segredo do calendário:</b> você está na semana 1. Se escolher o kit e postar até domingo, ainda pega as encomendas de quem se organiza cedo, que costumam ser os pedidos maiores.</p>
+  <p class="sign">Viviane Dornelles</p>
+
+  <div class="bf">
+    <span class="tag">Black Friday para alunas</span>
+    <h3>Esse calendário existe pronto dentro do Handify Completo</h3>
+    <p>Com a data de começar a produzir pra cada festa do ano, mais pedidos e clientes, catálogo com a sua marca, receitas, estoque e os 23 cursos e materiais da Handify.</p>
+    <p class="price">Até 30/11: de <s>R$ 397</s> por <strong>R$ 247/ano</strong> ou 12x de R$ 25,55</p>
+    <a class="btn" id="to-offer" href="/">Ver a condição de Black Friday</a>
+  </div>
+</div>
+<footer>Handify™ · Um espaço feito para aprender e criar.</footer>
+
+<script>
+  // Leva as UTMs do e-mail até a página da oferta (e de lá até o checkout)
+  (function () {
+    var a = document.getElementById('to-offer');
+    if (location.search) a.href = '/' + location.search;
+  })();
+</script>
+</body>
+</html>
