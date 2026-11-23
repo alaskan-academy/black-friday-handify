@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Black Friday Handify Completo</title>
+<meta name="description" content="Black Friday só para alunas: o Handify Completo de R$ 397 por R$ 247 por ano. Os 23 cursos e materiais e as ferramentas do seu negócio. Até 30/11.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="img/icon-gradiente-grande.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --handify-blue: #6699F3;
+    --handify-green: #72CF92;
+    --handify-yellow: #FEC649;
+    --handify-black: #0F0F0F;
+    --handify-gray-dark: #2D2D2D;
+    --handify-off-white: #F5F5F0;
+    --ink-2: #1A1A1A;
+    --muted: #5C5C5C;
+    --muted-dark: #BDBDBD;
+    --line: rgba(0,0,0,.08);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    color: var(--handify-gray-dark); background: #FFFFFF;
+    line-height: 1.6; font-size: 16px; -webkit-font-smoothing: antialiased;
+  }
+  img { display: block; max-width: 100%; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 16px; }
+
+  /* ===== Faixa corrida de Black Friday ===== */
+  .ticker { background: var(--handify-yellow); color: var(--handify-black); overflow: hidden; white-space: nowrap; border-bottom: 2px solid var(--handify-black); }
+  .ticker .track { display: inline-flex; animation: run 28s linear infinite; }
+  .ticker span { font-weight: 900; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; padding: 9px 0; }
+  .ticker span::after { content: "✦"; margin: 0 14px; }
+  @keyframes run { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ===== Hero escuro ===== */
+  .hero { background: var(--handify-black); color: #fff; padding: 22px 0 36px; position: relative; overflow: hidden; }
+  .hero::before { /* ponto de luz suave da marca */
+    content: ""; position: absolute; width: 420px; height: 420px; right: -140px; top: -120px;
+    background: radial-gradient(circle, rgba(102,153,243,.35), rgba(102,153,243,0) 65%); pointer-events: none;
+  }
+  .hero .wrap { position: relative; }
+  .logo-crop { display: block; width: 170px; height: 42px; object-fit: cover; object-position: center; }
+  .hero-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .bf-pill { background: var(--handify-yellow); color: var(--handify-black); font-weight: 900; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; padding: 6px 10px; border-radius: 6px; white-space: nowrap; }
+
+  .bf-title {
+    margin-top: 26px; font-weight: 900; line-height: .92; letter-spacing: -0.03em; text-transform: uppercase;
+    font-size: clamp(54px, 17vw, 104px); color: #fff;
+  }
+  .bf-title .y { color: var(--handify-yellow); display: block; }
+  .bf-sub { display: inline-block; margin-top: 14px; font-weight: 700; font-size: 14px; letter-spacing: .06em; text-transform: uppercase; color: var(--handify-black); background: #fff; padding: 6px 10px; border-radius: 6px; }
+
+  .stamp {
+    position: absolute; right: 16px; top: 78px; width: 112px; height: 112px; border-radius: 50%;
+    background: var(--handify-yellow); color: var(--handify-black); display: grid; place-items: center; text-align: center;
+    transform: rotate(-12deg); box-shadow: 0 6px 20px rgba(254,198,73,.35); border: 3px dashed var(--handify-black);
+  }
+  .stamp b { display: block; font-size: 34px; font-weight: 900; line-height: 1; letter-spacing: -0.03em; }
+  .stamp small { display: block; font-size: 11px; font-weight: 900; letter-spacing: .08em; }
+  @media (max-width: 420px) { .stamp { width: 92px; height: 92px; top: 70px; } .stamp b { font-size: 27px; } .stamp small { font-size: 9px; } }
+
+  .hero h1 { margin-top: 26px; font-weight: 900; font-size: clamp(26px, 6.8vw, 40px); line-height: 1.12; color: #fff; letter-spacing: -0.01em; }
+  .hero h1 .accent { color: var(--handify-blue); }
+  .hero .lead { margin-top: 12px; color: #E6E6E6; font-size: 16px; max-width: 58ch; }
+  .sign { font-family: 'Caveat', cursive; font-size: 26px; margin-top: 10px; }
+  .hero .sign { color: #fff; }
+
+  /* ===== Caixa de preço ===== */
+  .price-card { margin-top: 26px; background: #fff; color: var(--handify-gray-dark); border-radius: 16px; overflow: hidden; border: 3px solid var(--handify-yellow); }
+  .price-head { background: var(--handify-yellow); color: var(--handify-black); font-weight: 900; text-transform: uppercase; letter-spacing: .06em; font-size: 13px; padding: 10px 18px; display: flex; justify-content: space-between; gap: 8px; }
+  .price-body { padding: 18px 18px 20px; }
+  .price-label { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+  .price-from { font-size: 16px; color: var(--muted); margin-top: 6px; }
+  .price-from s { text-decoration-thickness: 2px; text-decoration-color: #D64545; }
+  .price-main { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .price-main .big { font-size: 52px; font-weight: 900; color: var(--handify-black); letter-spacing: -0.03em; line-height: 1.05; }
+  .price-main .per { font-size: 16px; font-weight: 700; color: var(--muted); }
+  .price-inst { font-size: 15px; margin-top: 2px; }
+  .save { display: inline-block; margin-top: 10px; background: var(--handify-black); color: var(--handify-yellow); font-weight: 900; font-size: 13px; letter-spacing: .04em; text-transform: uppercase; padding: 6px 10px; border-radius: 6px; }
+  .price-anchor { margin-top: 12px; font-size: 14px; background: var(--handify-off-white); border-radius: 10px; padding: 10px 12px; }
+  .btn {
+    display: block; width: 100%; text-align: center; text-decoration: none;
+    background: var(--handify-blue); color: #fff; font-weight: 900; font-size: 17px; letter-spacing: .01em;
+    padding: 18px 20px; border-radius: 10px; margin-top: 16px;
+    transition: transform .2s ease-out, box-shadow .2s ease-out, background .2s ease-out;
+    box-shadow: 0 4px 14px rgba(102,153,243,.35);
+  }
+  .btn:hover { background: #5588E8; transform: translateY(-1px); box-shadow: 0 6px 18px rgba(102,153,243,.45); }
+  .btn:focus-visible { outline: 3px solid var(--handify-yellow); outline-offset: 3px; }
+  .micro { font-size: 13px; color: var(--muted); text-align: center; margin-top: 10px; }
+
+  /* ===== Faixa de lembrete entre seções ===== */
+  .bf-strip { background: var(--handify-black); color: #fff; text-align: center; padding: 14px 16px; font-weight: 900; text-transform: uppercase; letter-spacing: .05em; font-size: 14px; }
+  .bf-strip .y { color: var(--handify-yellow); }
+  .bf-strip a { color: var(--handify-yellow); }
+
+  /* ===== Seções ===== */
+  section { padding: 44px 0; }
+  section.muted { background: var(--handify-off-white); }
+  .kicker { display: inline-block; font-size: 11px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; background: var(--handify-black); color: var(--handify-yellow); padding: 4px 8px; border-radius: 4px; margin-bottom: 10px; }
+  h2 { font-weight: 900; font-size: clamp(24px, 6vw, 32px); line-height: 1.18; color: var(--handify-black); margin-bottom: 12px; letter-spacing: -0.01em; }
+  h2 .accent { color: var(--handify-blue); }
+  .sub { color: var(--muted); font-size: 16px; margin-bottom: 24px; max-width: 60ch; }
+
+  .group-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 8px 0 12px; }
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 24px; }
+  @media (min-width: 560px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+  .item { background: #fff; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+  .item img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; background: var(--handify-off-white); }
+  .item p { font-size: 13px; font-weight: 600; line-height: 1.35; padding: 10px 10px 12px; }
+  .keep { background: #fff; border-left: 4px solid var(--handify-green); border-radius: 8px; padding: 14px 16px; font-size: 15px; }
+
+  .tools { display: grid; gap: 12px; }
+  @media (min-width: 560px) { .tools { grid-template-columns: 1fr 1fr; } }
+  .tool { display: flex; gap: 14px; align-items: flex-start; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 16px; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+  .tool .ico { font-size: 24px; line-height: 1; margin-top: 2px; }
+  .tool h3 { font-size: 15px; font-weight: 700; color: var(--handify-black); margin-bottom: 2px; }
+  .tool p { font-size: 14px; color: var(--muted); line-height: 1.5; }
+  .tool.highlight { border: 2px solid var(--handify-green); }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; background: var(--handify-green); color: var(--handify-black); padding: 2px 8px; border-radius: 999px; margin-left: 6px; vertical-align: 2px; }
+
+  /* ===== "Prints" de posts reais da comunidade ===== */
+  .prints { display: grid; gap: 18px; }
+  @media (min-width: 640px) { .prints { grid-template-columns: 1fr 1fr; align-items: start; } }
+  .shot { background: #fff; border-radius: 14px; border: 1px solid #E3E3E3; box-shadow: 0 10px 28px rgba(0,0,0,.10); overflow: hidden; }
+  .shot-bar { display: flex; align-items: center; gap: 6px; padding: 8px 12px; background: #F2F2F2; border-bottom: 1px solid #E3E3E3; font-size: 11px; color: #777; }
+  .shot-bar i { width: 8px; height: 8px; border-radius: 50%; background: #D0D0D0; display: inline-block; }
+  .shot-bar span { margin-left: 6px; }
+  .post { padding: 14px 14px 12px; }
+  .post-head { display: flex; gap: 10px; align-items: center; }
+  .av { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; color: #fff; font-size: 15px; flex: 0 0 auto; }
+  .post-meta b { display: block; font-size: 14px; color: var(--handify-black); line-height: 1.2; }
+  .post-meta small { font-size: 12px; color: #8A8A8A; }
+  .post-title { font-weight: 700; font-size: 15px; color: var(--handify-black); margin-top: 10px; }
+  .post-body { font-size: 14px; color: #3A3A3A; margin-top: 4px; line-height: 1.5; }
+  .post-photo { margin-top: 10px; border-radius: 10px; overflow: hidden; background: var(--handify-off-white); }
+  .post-photo img { width: 100%; max-height: 360px; object-fit: cover; }
+  .post-foot { display: flex; gap: 16px; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EFEFEF; font-size: 13px; color: #6F6F6F; font-weight: 600; }
+  .reply { margin-top: 10px; background: #F6F6F6; border-radius: 10px; padding: 10px 12px; }
+  .reply .post-body { margin-top: 2px; }
+  .shot-caption { font-size: 12px; color: var(--muted); text-align: center; margin-top: 8px; }
+
+  /* ===== Professora ===== */
+  .teacher { display: flex; gap: 18px; align-items: flex-start; }
+  .teacher img { flex: 0 0 96px; width: 96px; height: 96px; border-radius: 50%; object-fit: cover; border: 3px solid var(--handify-yellow); }
+  @media (max-width: 420px) { .teacher { flex-direction: column; } }
+  .teacher p + p { margin-top: 10px; }
+  .role { font-size: 12px; font-weight: 700; color: var(--handify-blue); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 8px; }
+
+  /* ===== FAQ ===== */
+  details { border-bottom: 1px solid var(--line); padding: 16px 0; }
+  details:first-of-type { border-top: 1px solid var(--line); }
+  summary { cursor: pointer; list-style: none; font-weight: 700; font-size: 16px; color: var(--handify-black); display: flex; justify-content: space-between; gap: 12px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; color: var(--handify-blue); font-weight: 900; font-size: 22px; line-height: 1; }
+  details[open] summary::after { content: "–"; }
+  summary:focus-visible { outline: 3px solid var(--handify-blue); outline-offset: 4px; border-radius: 4px; }
+  details p { margin-top: 10px; font-size: 15px; }
+
+  /* ===== Fechamento ===== */
+  .final { background: var(--handify-black); color: #fff; text-align: center; }
+  .final .bf-title { font-size: clamp(44px, 13vw, 80px); margin-top: 0; }
+  .final .sub { color: #CFCFCF; margin: 14px auto 18px; }
+  .countdown { display: flex; justify-content: center; gap: 10px; margin: 6px 0 4px; }
+  .countdown div { background: var(--handify-yellow); color: var(--handify-black); border-radius: 10px; padding: 10px 0; min-width: 68px; }
+  .countdown b { display: block; font-size: 28px; font-weight: 900; line-height: 1.1; }
+  .countdown span { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
+  .final .price-line { font-size: 16px; margin-top: 16px; }
+  .final .price-line s { color: #9A9A9A; text-decoration-color: #D64545; }
+  .final .price-line strong { color: var(--handify-yellow); font-size: 22px; font-weight: 900; }
+  .final .micro { color: var(--muted-dark); }
+
+  footer { background: var(--handify-black); color: #9A9A9A; font-size: 12px; text-align: center; padding: 8px 16px 96px; border-top: 1px solid #222; }
+  footer .logo-crop { width: 140px; height: 34px; margin: 14px auto 8px; }
+
+  /* ===== Botão fixo no celular ===== */
+  .sticky {
+    position: fixed; left: 0; right: 0; bottom: 0; background: var(--handify-black);
+    border-top: 3px solid var(--handify-yellow); padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+    display: flex; align-items: center; gap: 12px; z-index: 10; transform: translateY(110%); transition: transform .25s ease-out;
+  }
+  .sticky.show { transform: translateY(0); }
+  .sticky .s-price { font-size: 12px; line-height: 1.25; white-space: nowrap; color: #CFCFCF; }
+  .sticky .s-price em { display: block; font-style: normal; font-weight: 900; font-size: 11px; letter-spacing: .06em; color: var(--handify-yellow); text-transform: uppercase; }
+  .sticky .s-price strong { font-size: 16px; color: #fff; }
+  .sticky .btn { margin: 0; padding: 13px 14px; font-size: 15px; }
+  @media (min-width: 900px) { .sticky { display: none; } footer { padding-bottom: 28px; } }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+
+<!-- FAIXA CORRIDA -->
+<div class="ticker" aria-label="Black Friday Handify: 38% de desconto só para alunas até 30/11">
+  <div class="track" aria-hidden="true">
+    <span>Black Friday Handify</span><span>38% off</span><span>Só para alunas</span><span>Até 30/11 às 23h59</span>
+    <span>Black Friday Handify</span><span>38% off</span><span>Só para alunas</span><span>Até 30/11 às 23h59</span>
+    <span>Black Friday Handify</span><span>38% off</span><span>Só para alunas</span><span>Até 30/11 às 23h59</span>
+    <span>Black Friday Handify</span><span>38% off</span><span>Só para alunas</span><span>Até 30/11 às 23h59</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <img class="logo-crop" src="img/logo-horizontal-fundo-escuro.png" alt="Handify™">
+      <span class="bf-pill">Até 30/11</span>
+    </div>
+
+    <div class="stamp" aria-hidden="true"><div><b>-38%</b><small>OFF</small></div></div>
+
+    <p class="bf-title">Black<span class="y">Friday</span></p>
+    <span class="bf-sub">Só para quem já é aluna Handify</span>
+
+    <h1>Você já tem 1.<br>Agora abra os <span class="accent">outros 22.</span></h1>
+    <p class="lead">Você já sabe fazer o sabonete. O que falta pra vender no Natal é o resto: a vela que completa o kit, a embalagem que deixa você cobrar mais, saber quanto cobrar e não se perder nas encomendas. O Handify Completo junta tudo isso num lugar só.</p>
+    <p class="sign">Viviane Dornelles</p>
+
+    <div class="price-card" id="oferta">
+      <div class="price-head"><span>Preço de Black Friday</span><span>-38%</span></div>
+      <div class="price-body">
+        <p class="price-label">Handify Completo · assinatura anual</p>
+        <p class="price-from">de <s>R$ 397</s> por</p>
+        <div class="price-main"><span class="big">R$ 247</span><span class="per">por ano</span></div>
+        <p class="price-inst">ou <strong>12x de R$ 25,55</strong> no cartão · 5% de desconto no Pix</p>
+        <span class="save">Você economiza R$ 150</span>
+        <p class="price-anchor">Comprando os 23 cursos e materiais separados, você pagaria <strong>R$ 788,69</strong>.</p>
+        <a class="btn" href="https://checkout.payt.com.br/efd06bdcbeb333942728c00b0cc2f4f3?utm_source=email&amp;utm_medium=broadcast&amp;utm_campaign=handify&amp;utm_content=black-friday">Garantir meu preço de Black Friday</a>
+        <p class="micro">Mesmo login da sua área de membros · acesso liberado logo após a compra</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="bf-strip">Black Friday Handify · <span class="y">R$ 247/ano</span> só até 30/11</div>
+
+<!-- O QUE ENTRA -->
+<section class="muted">
+  <div class="wrap">
+    <span class="kicker">Black Friday</span>
+    <h2>Tudo que a Handify tem, <span class="accent">de uma vez</span></h2>
+    <p class="sub">São 10 cursos e 13 livros digitais. E todo lançamento novo entra sozinho no seu plano, sem precisar comprar de novo.</p>
+
+    <p class="group-title">10 cursos em vídeo</p>
+    <div class="grid">
+      <div class="item"><img loading="lazy" src="https://fjcdcvywdiagzovqqcpc.supabase.co/storage/v1/object/public/course-thumbnails/1782495855133.webp" alt=""><p>Saponaria Brasil</p></div>
+      <div class="item"><img loading="lazy" src="https://fjcdcvywdiagzovqqcpc.supabase.co/storage/v1/object/public/course-thumbnails/1782500963317.webp" alt=""><p>Fábrica das Velas de Lembrancinha</p></div>
+      <div class="item"><img loading="lazy" src="https://fjcdcvywdiagzovqqcpc.supabase.co/storage/v1/object/public/course-thumbnails/1782507368875.webp" alt=""><p>Embalagens Premium na Prática</p></div>
+      <div class="item"><img loading="lazy" src="https://fjcdcvywdiagzovqqcpc.supabase.co/storage/v1/object/public/course-thumbnails/1782481935485.webp" alt=""><p>Workshop Buquê de Velas</p></div>
+      <div class="item"><img loading="lazy" src="https://fjcdcvywdiagzovqqcpc.supabase.co/storage/v1/object/public/course-thumbnails/1782500626281.webp" alt=""><p>Primeira Venda em 7 dias (saboaria)</p></div>
+      <div class="item"><img loading="lazy" src="https://fjcdcvywdiagzovqqcpc.supabase.co/storage/v1/object/public/course-thumbnails/1782510413706.webp" alt=""><p>Vendas no Artesanato na Prática</p></div>
+      <div class="item"><img loading="lazy" src="https://fjcdcvywdiagzovqqcpc.supabase.co/storage/v1/object/public/course-thumbnails/1782482917539.webp" alt=""><p>Velaroma Artesanal</p></div>
+      <div class="item"><img loading="lazy" src="https://fjcdcvywdiagzovqqcpc.supabase.co/storage/v1/object/public/course-thumbnails/1782506609160.webp" alt=""><p>Ateliê de Caixas Florais</p></div>
+      <div class="item"><img loading="lazy" src="https://fjcdcvywdiagzovqqcpc.supabase.co/storage/v1/object/public/course-thumbnails/1782506065979.webp" alt=""><p>Flores de Alto Padrão</p></div>
+      <div class="item"><img loading="lazy" src="https://fjcdcvywdiagzovqqcpc.supabase.co/storage/v1/object/public/course-thumbnails/1782511114613.webp" alt=""><p>Sistema de Decoração de Balões</p></div>
+    </div>
+
+    <p class="group-title">13 livros digitais</p>
+    <div class="grid">
+      <div class="item"><img loading="lazy" src="https://fjcdcvywdiagzovqqcpc.supabase.co/storage/v1/object/public/course-thumbnails/1782516712342.webp" alt=""><p>Kit Natal Artesanal: aromas, embalagens e ideias para lucrar</p></div>
+      <div class="item"><img loading="lazy" src="https://fjcdcvywdiagzovqqcpc.supabase.co/storage/v1/object/public/course-thumbnails/1782515696902.webp" alt=""><p>Embalagens que Encantam</p></div>
+      <div class="item"><img loading="lazy" src="https://fjcdcvywdiagzovqqcpc.supabase.co/storage/v1/object/public/course-thumbnails/1782514816097.webp" alt=""><p>Arte Floral em Sabonetes</p></div>
+      <div class="item"><img loading="lazy" src="https://fjcdcvywdiagzovqqcpc.supabase.co/storage/v1/object/public/course-thumbnails/1782512886303.webp" alt=""><p>Difusores e Aromas para Casa</p></div>
+      <div class="item"><img loading="lazy" src="https://fjcdcvywdiagzovqqcpc.supabase.co/storage/v1/object/public/course-thumbnails/1782512406389.webp" alt=""><p>Loja de Velas Online</p></div>
+      <div class="item"><img loading="lazy" src="https://fjcdcvywdiagzovqqcpc.supabase.co/storage/v1/object/public/course-thumbnails/1782517818245.png" alt=""><p>Guia Rápido de Resolver Imperfeições nas Velas</p></div>
+      <div class="item"><img loading="lazy" src="https://fjcdcvywdiagzovqqcpc.supabase.co/storage/v1/object/public/course-thumbnails/1783534512410.webp" alt=""><p>Guia das Velas de Intenção e Rituais</p></div>
+      <div class="item"><img loading="lazy" src="https://fjcdcvywdiagzovqqcpc.supabase.co/storage/v1/object/public/course-thumbnails/1782512110523.webp" alt=""><p>Biblioteca de 100 Assinaturas Aromáticas</p></div>
+      <div class="item"><img loading="lazy" src="https://fjcdcvywdiagzovqqcpc.supabase.co/storage/v1/object/public/course-thumbnails/1782515053512.webp" alt=""><p>Saboaria Energética: purificação e bem-estar</p></div>
+      <div class="item"><img loading="lazy" src="https://fjcdcvywdiagzovqqcpc.supabase.co/storage/v1/object/public/course-thumbnails/1782517234535.webp" alt=""><p>Natural Dermatológica</p></div>
+      <div class="item"><img loading="lazy" src="https://fjcdcvywdiagzovqqcpc.supabase.co/storage/v1/object/public/course-thumbnails/1782513496869.webp" alt=""><p>Pomadas Medicinais</p></div>
+      <div class="item"><img loading="lazy" src="https://fjcdcvywdiagzovqqcpc.supabase.co/storage/v1/object/public/course-thumbnails/1782513713401.webp" alt=""><p>Aromaterapia com Plantas Medicinais</p></div>
+      <div class="item"><img loading="lazy" src="https://fjcdcvywdiagzovqqcpc.supabase.co/storage/v1/object/public/course-thumbnails/1782515364778.webp" alt=""><p>Beleza Natural: usando plantas medicinais</p></div>
+    </div>
+
+    <p class="keep"><strong>O que você já comprou continua seu, sem prazo.</strong> O plano abre o resto.</p>
+  </div>
+</section>
+
+<!-- FERRAMENTAS -->
+<section>
+  <div class="wrap">
+    <span class="kicker">Só no Completo</span>
+    <h2>E as ferramentas <span class="accent">do seu negócio</span></h2>
+    <p class="sub">O que você guardar nelas fica na sua conta.</p>
+    <div class="tools">
+      <div class="tool highlight"><span class="ico" aria-hidden="true">📅</span><div><h3>Calendário do artesanato <span class="tag">Natal</span></h3><p>A data certa de começar a produzir para cada festa, pra entregar a tempo.</p></div></div>
+      <div class="tool"><span class="ico" aria-hidden="true">🧾</span><div><h3>Pedidos e clientes</h3><p>Quem pediu, para quando, e quanto ainda falta receber.</p></div></div>
+      <div class="tool"><span class="ico" aria-hidden="true">🏷️</span><div><h3>Catálogo com a sua marca</h3><p>Tabela de preços em PDF, pronta pra mandar no WhatsApp da cliente.</p></div></div>
+      <div class="tool"><span class="ico" aria-hidden="true">📒</span><div><h3>Minhas receitas</h3><p>Custo, preço, essência e pavio de cada receita, sempre à mão.</p></div></div>
+      <div class="tool"><span class="ico" aria-hidden="true">📦</span><div><h3>Estoque de insumos</h3><p>O que está acabando e o que está perto de vencer.</p></div></div>
+      <div class="tool"><span class="ico" aria-hidden="true">📊</span><div><h3>Meu negócio</h3><p>Pedidos, valores a receber, estoque e a próxima data, numa olhada só.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="bf-strip">Tudo isso por <span class="y">12x de R$ 25,55</span> na Black Friday · <a href="#oferta">ver preço</a></div>
+
+<!-- PRINTS DA COMUNIDADE -->
+<section class="muted">
+  <div class="wrap">
+    <span class="kicker">Comunidade Handify</span>
+    <h2>Direto da <span class="accent">comunidade</span></h2>
+    <p class="sub">Posts reais de alunas na comunidade da Handify, com as fotos que elas mesmas publicaram.</p>
+
+    <div class="prints">
+      <figure>
+        <div class="shot">
+          <div class="shot-bar"><i></i><i></i><i></i><span>Comunidade Handify · Saboaria Artesanal</span></div>
+          <div class="post">
+            <div class="post-head">
+              <div class="av" style="background:#6699F3">N</div>
+              <div class="post-meta"><b>Narriman</b><small>24 de agosto de 2026</small></div>
+            </div>
+            <p class="post-title">PRIMEIRO SABONETE</p>
+            <p class="post-body">Fiz meus primeiros sabonetes esse fim de semana, fiz o de mel e aveia, postei no instagram e os 5 que fabriquei foram vendidos e estou com encomendas ja</p>
+            <div class="post-photo"><img loading="lazy" src="https://fjcdcvywdiagzovqqcpc.supabase.co/storage/v1/object/public/community/forum/c97be695-3f2b-45d2-b437-a5c8478a0e9b/1787596703212.jpg" alt="Sabonetes de mel e aveia feitos pela aluna"></div>
+            <div class="post-foot"><span>♥ 7 curtidas</span><span>💬 2 comentários</span></div>
+          </div>
+        </div>
+      </figure>
+
+      <figure>
+        <div class="shot">
+          <div class="shot-bar"><i></i><i></i><i></i><span>Comunidade Handify · Saboaria Artesanal</span></div>
+          <div class="post">
+            <div class="post-head">
+              <div class="av" style="background:#72CF92;color:#0F0F0F">A</div>
+              <div class="post-meta"><b>Angela</b><small>19 de novembro de 2026</small></div>
+            </div>
+            <p class="post-title">Sabonetes</p>
+            <p class="post-body">Fiz minha segunda remessa de sabonetes, fiz com cautela, seguindo corretamente as receitas nos sabonetes coloquei rosas porém não tinha folha de ouro, e coloquei lavanda. E amei meu 3° cacho de uvas, praticando vai acertando</p>
+            <div class="post-photo"><img loading="lazy" src="https://fjcdcvywdiagzovqqcpc.supabase.co/storage/v1/object/public/community/forum/1e59db0f-fad3-44c4-ab14-07e303a54b2c/1795117278412.jpg" alt="Sabonetes e cacho de uva feitos pela aluna"></div>
+            <div class="post-foot"><span>♥ 7 curtidas</span><span>💬 5 comentários</span></div>
+          </div>
+        </div>
+      </figure>
+
+      <figure>
+        <div class="shot">
+          <div class="shot-bar"><i></i><i></i><i></i><span>Comunidade Handify · Saboaria Artesanal</span></div>
+          <div class="post">
+            <div class="post-head">
+              <div class="av" style="background:#FEC649;color:#0F0F0F">A</div>
+              <div class="post-meta"><b>Adriana</b><small>comentou em 15 de setembro de 2026</small></div>
+            </div>
+            <div class="reply">
+              <p class="post-body">Muito obrigada pelo retorno. Vcs são ótimos (as). O curso é excelente, e cumprem tudo que prometem. Agradeço antecipadamente os parabéns, a festa será dia 01/11 e assim que ficarem prontos, eu posto aqui.</p>
+            </div>
+          </div>
+        </div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- PROFESSORA -->
+<section>
+  <div class="wrap">
+    <div class="teacher">
+      <img src="https://saponaria.handify.com.br/Imagens/saponaria-rev4-img6.webp" alt="Viviane Dornelles">
+      <div>
+        <h2 style="font-size:24px;margin-bottom:2px">Um recado da Viviane</h2>
+        <p class="role">Especialista em saboaria artesanal</p>
+        <p>Eu vejo na comunidade todo dia: a aluna aprende o sabonete, faz o primeiro cacho de uva, e logo aparece a cliente pedindo um kit, uma lembrancinha, uma caixa pro Natal. O Completo existe pra você dizer "sim" pra esses pedidos, com tudo que precisa num lugar só.</p>
+        <p>E nessa Black Friday, quem já é aluna entra pelo menor preço que o Completo já teve.</p>
+        <p class="sign">Viviane Dornelles</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="muted">
+  <div class="wrap">
+    <h2>Dúvidas comuns</h2>
+    <details>
+      <summary>O curso que eu já comprei continua meu?</summary>
+      <p>Sim. O que você já comprou continua seu, sem prazo. O Completo abre todos os outros cursos, materiais e ferramentas.</p>
+    </details>
+    <details>
+      <summary>Como funciona a assinatura anual?</summary>
+      <p>O Handify Completo é uma assinatura de R$ 247 por ano na Black Friday, que você paga à vista, em até 12x de R$ 25,55 no cartão ou no Pix com 5% de desconto. Você tem acesso a tudo durante o ano da assinatura.</p>
+    </details>
+    <details>
+      <summary>E os cursos que forem lançados depois?</summary>
+      <p>Entram sozinhos no seu plano, sem precisar comprar de novo.</p>
+    </details>
+    <details>
+      <summary>Como eu acesso depois de comprar?</summary>
+      <p>Com o mesmo e-mail e senha da sua área de membros. Os cursos novos aparecem na sua conta logo após a confirmação do pagamento.</p>
+    </details>
+    <details>
+      <summary>E se eu me arrepender?</summary>
+      <p>Você tem 7 dias a partir da compra para pedir o reembolso, direto pelo e-mail contato@handify.com.br.</p>
+    </details>
+    <details>
+      <summary>O preço de Black Friday continua depois?</summary>
+      <p>Não. Os R$ 247 por ano valem só nesta Black Friday para alunas, até segunda, 30/11, às 23h59. Depois, o Completo volta para R$ 397.</p>
+    </details>
+  </div>
+</section>
+
+<!-- FECHAMENTO -->
+<section class="final">
+  <div class="wrap">
+    <p class="bf-title">Black<span class="y">Friday</span></p>
+    <p class="sub">acaba segunda, 30/11, às 23h59. Depois, o Handify Completo volta para R$ 397.</p>
+    <div class="countdown" id="countdown" aria-live="polite">
+      <div><b id="cd-d">--</b><span>dias</span></div>
+      <div><b id="cd-h">--</b><span>horas</span></div>
+      <div><b id="cd-m">--</b><span>min</span></div>
+    </div>
+    <p class="price-line">de <s>R$ 397</s> por <strong>R$ 247/ano</strong><br>ou 12x de R$ 25,55</p>
+    <a class="btn" href="https://checkout.payt.com.br/efd06bdcbeb333942728c00b0cc2f4f3?utm_source=email&amp;utm_medium=broadcast&amp;utm_campaign=handify&amp;utm_content=black-friday">Garantir meu preço de Black Friday</a>
+    <p class="micro">Dúvidas? Fale com a gente: contato@handify.com.br</p>
+  </div>
+</section>
+
+<footer>
+  <img class="logo-crop" src="img/logo-horizontal-fundo-escuro.png" alt="Handify™">
+  <p>Handify™ · Um espaço feito para aprender e criar.</p>
+</footer>
+
+<div class="sticky" id="sticky">
+  <p class="s-price"><em>Black Friday</em><strong>R$ 247/ano</strong><br>ou 12x R$ 25,55</p>
+  <a class="btn" href="https://checkout.payt.com.br/efd06bdcbeb333942728c00b0cc2f4f3?utm_source=email&amp;utm_medium=broadcast&amp;utm_campaign=handify&amp;utm_content=black-friday">Garantir meu preço</a>
+</div>
+
+<script>
+  // Contagem regressiva até o prazo real da campanha: 30/11/2026 23:59:59 (Brasília)
+  (function () {
+    var end = new Date('2026-11-30T23:59:59-03:00').getTime();
+    var d = document.getElementById('cd-d'), h = document.getElementById('cd-h'), m = document.getElementById('cd-m');
+    function pad(n) { return n < 10 ? '0' + n : '' + n; }
+    function tick() {
+      var diff = end - Date.now();
+      if (diff <= 0) {
+        document.getElementById('countdown').innerHTML = '<p style="color:#fff;font-weight:700">A Black Friday Handify foi encerrada.</p>';
+        return;
+      }
+      d.textContent = pad(Math.floor(diff / 86400000));
+      h.textContent = pad(Math.floor(diff % 86400000 / 3600000));
+      m.textContent = pad(Math.floor(diff % 3600000 / 60000));
+      setTimeout(tick, 30000);
+    }
+    tick();
+  })();
+
+  // Botão fixo no celular: aparece depois que a caixa de preço sai da tela
+  (function () {
+    var sticky = document.getElementById('sticky');
+    var card = document.getElementById('oferta');
+    if (!('IntersectionObserver' in window)) return;
+    new IntersectionObserver(function (entries) {
+      sticky.classList.toggle('show', !entries[0].isIntersecting && entries[0].boundingClientRect.top < 0);
+    }).observe(card);
+  })();
+</script>
+</body>
+</html>
